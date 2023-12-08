@@ -28,11 +28,11 @@ $config = ORMSetup::createAttributeMetadataConfiguration(
 
 // database params
 $connectionParams = [
-    'dbname' => 'financas',
-    'user' => 'root',
-    'password' => '1234',
-    'host' => 'localhost',
-    'driver' => 'pdo_mysql',
+    'dbname'   => $_ENV['DATABASE_NAME'],
+    'user'     => $_ENV['DATABASE_USER'],
+    'password' => $_ENV['DATABASE_PASSWORD'],
+    'host'     => $_ENV['DATABASE_HOST'],
+    'driver'   => $_ENV['DATABASE_DRIVER'],
 ];
 
 // configuring the database connection

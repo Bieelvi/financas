@@ -3,7 +3,6 @@
 namespace Financas\Mail;
 
 use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\SMTP;
 
 class SendMail
 {
@@ -12,16 +11,14 @@ class SendMail
     public function __construct()
     {
         $this->mail = new PHPMailer();
-
-        $this->mail->SMTPDebug  = SMTP::DEBUG_SERVER;         
+       
         $this->mail->isSMTP();                                
-        $this->mail->Host       = 'smtp.gmail.com';
-        $this->mail->SMTPAuth   = true;                       
-        $this->mail->Username   = 'bieelvii13@gmail.com';         
-        $this->mail->Password   = 'pqzm xfau yvkr zbbo';                   
+        $this->mail->Host       = $_ENV['MAIL_HOST'];
+        $this->mail->SMTPAuth   = $_ENV['MAIL_SMTP_AUTH'];               
+        $this->mail->Username   = $_ENV['MAIL_USERNAME'];       
+        $this->mail->Password   = $_ENV['MAIL_PASSWORD'];                
         $this->mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
-        $this->mail->Port       = 465;         
-        $this->mail->SMTPDebug  = SMTP::DEBUG_OFF;
+        $this->mail->Port       = $_ENV['MAIL_POST'];     
     }
 
     public function send(Mail $mail): void

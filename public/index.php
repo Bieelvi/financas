@@ -2,7 +2,13 @@
 
 declare(strict_types=1);
 
+use Dotenv\Dotenv;
+
 include_once __DIR__ . '/../vendor/autoload.php';
+
+$dotenv = Dotenv::createImmutable(__DIR__.'/..');
+$dotenv->safeLoad();
+
 require_once __DIR__ . '/../bootstrap.php';
 
 ini_set('display_errors', 1);
