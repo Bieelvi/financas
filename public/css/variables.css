@@ -1,0 +1,11 @@
+:root {
+    --black: #000000;
+    --dark-purple: #150050;
+    --purple: #3F0071;
+    --light-purple: #610094;
+    --white: #FFFFFF;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}

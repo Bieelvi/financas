@@ -1,0 +1,21 @@
+{
+    "name": "bieelvi/financas",
+    "autoload": {
+        "psr-4": {
+            "Financas\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Gabs Pessoal",
+            "email": "bieelvii13@gmail.com"
+        }
+    ],
+    "require": {
+        "phpmailer/phpmailer": "^6.9",
+        "doctrine/orm": "^2.11.0",
+        "doctrine/dbal": "^3.2",
+        "symfony/yaml": "^5.4",
+        "symfony/cache": "^5.4"
+    }
+}

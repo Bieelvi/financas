@@ -1,0 +1,24 @@
+*,
+.color-white,
+.color-white:hover,
+.color-white:visited {
+    color: var(--white);
+}
+
+body {
+    background-color: var(--light-purple);
+}
+
+.bg-purple {
+    background-color: var(--purple);
+}
+
+#flash-message {
+    bottom: 5px; 
+    left: 15px;
+}
+
+.flash-message-close {
+    top: -1px; 
+    right: 1px
+}
