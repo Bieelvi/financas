@@ -40,4 +40,12 @@ return [
     "No comments" => "No comments",
     "Delete product" => "Delete product",
     "Are you sure you want to delete this farm?" => "Are you sure you want to delete this farm?",
+    "Dashboard" => "Dashboard",
+    "Page not found" => "Page not found",
+    "In progress" => "In progress",
+    "Product name" => "Product name",
+    "Exemple card credit" => "Exemple: card credit",
+    "List of registered products" => "List of registered products",
+    "Are you sure you want to delete this product?" => "Are you sure you want to delete this product?",
+    "Delete product" => "Delete product",
 ];

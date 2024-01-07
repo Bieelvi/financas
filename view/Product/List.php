@@ -5,10 +5,17 @@
     <section class="container mt-3" data-bs-theme="dark">
         
         <div class="d-flex justify-content-between align-items-center mb-3">
-            <h3>Lista de produtos cadastrados</h3>
+            <h3><?= translate('List of registered products') ?></h3>
 
-            <button type="button" class="btn btn-outline-light" data-bs-toggle="collapse" data-bs-target="#collapseFilter" aria-expanded="false" aria-controls="collapseFilter">
-                Filter
+            <button 
+                type="button" 
+                class="btn btn-outline-light" 
+                data-bs-toggle="collapse" 
+                data-bs-target="#collapseFilter" 
+                aria-expanded="false" 
+                aria-controls="collapseFilter"
+            >
+                <?= translate('Filter') ?>
             </button>
         </div>
 
@@ -19,8 +26,8 @@
                 <thead>
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Product name</th>
-                        <th scope="col">Actions</th>
+                        <th scope="col"><?= translate('Product') ?></th>
+                        <th scope="col"><?= translate('Actions') ?></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -33,7 +40,11 @@
                                     <a class="product-edit cursor-pointer">
                                         <i class="bi bi-pencil-square" id="<?= $product->getId() ?>"></i>
                                     </a>
-                                    <a class="product-delete cursor-pointer" data-bs-toggle="modal" data-bs-target="#confirmModal">
+                                    <a 
+                                        class="product-delete cursor-pointer" 
+                                        data-bs-toggle="modal" 
+                                        data-bs-target="#confirmModal"
+                                    >
                                         <i class="bi bi-trash" id="<?= $product->getId() ?>"></i>
                                     </a>
                                 </div>
@@ -48,8 +59,8 @@
 
     <script>
         $(".product-delete").on("click", function(e) {
-            $("#confirmModalLabel").html("Delete product");
-            $("#modal-body-text").html("Are you sure you want to delete this product?");
+            $("#confirmModalLabel").html("<?= translate('Delete product') ?>");
+            $("#modal-body-text").html("<?= translate('Are you sure you want to delete this product?') ?>");
             $("#confirm-save").attr("delete", e.target.id);
         });
 

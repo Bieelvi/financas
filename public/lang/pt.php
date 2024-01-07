@@ -39,5 +39,13 @@ return [
     "Actions" => "Ações",
     "No comments" => "Sem nenhuma observação",
     "Delete product" => "Deletar produto",
-    "Are you sure you want to delete this farm?" => "Você tem certeza que deseja deletar este fazendário?"
+    "Are you sure you want to delete this farm?" => "Você tem certeza que deseja deletar este fazendário?",
+    "Dashboard" => "Painel",
+    "Page not found" => "Página não encontrada",
+    "In progress" => "Em progresso",
+    "Product name" => "Nome do produto",
+    "Exemple card credit" => "Exemplo: Cartão de crédito",
+    "List of registered products" => "Lista de produtos cadastrados",
+    "Are you sure you want to delete this product?" => "Você tem certeza que deseja deletar este produto?",
+    "Delete product" => "Deletar produto",
 ];
