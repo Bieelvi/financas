@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="pt_BR">
+<html lang="<?= lang() ?>">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title><?= isset($title) ? ucfirst($title) . " - Finanças Bieelvi" : "Finanças Bieelvi" ?></title>
+    <title><?= isset($title) ? ucfirst($title) . " - " . translate('Bieelvi Finance') : translate('Bieelvi Finance') ?></title>
 
     <!-- JS essencial -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -38,7 +38,7 @@
     <nav class="navbar navbar-expand-lg bg-purple" data-bs-theme="dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="/home">
-                <img src="/favicon.ico" alt="Logo da página">
+                <img src="/favicon.ico" alt="<?= translate('Page Logo Alt') ?>">
             </a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -48,10 +48,10 @@
             <div class="collapse navbar-collapse justify-content-between" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
                     <?php if (\Financas\Helper\Session::has()) : ?>
-                        <a class="nav-link <?= $title == 'report' ? 'active border rounded border-white' : '' ?>" aria-current="page" href="/report">Relatório</a>
-                        <a class="nav-link <?= $title == 'farmer' ? 'active border rounded border-white' : '' ?>" aria-current="page" href="/farmer">Fazendário</a>
+                        <a class="nav-link <?= $title == 'report' ? 'active border rounded border-white' : '' ?>" aria-current="page" href="/report"><?= translate('Reports') ?></a>
+                        <a class="nav-link <?= $title == 'farmer' ? 'active border rounded border-white' : '' ?>" aria-current="page" href="/farmer"><?= translate('Farmer') ?></a>
                         <?php if($_SESSION['logged']->getType() == \Financas\Enum\UserType::ADMIN->value) : ?>
-                            <a class="nav-link <?= $title == 'products' ? 'active border rounded border-white' : '' ?>" aria-current="page" href="/products">Produtos</a>
+                            <a class="nav-link <?= $title == 'products' ? 'active border rounded border-white' : '' ?>" aria-current="page" href="/products"><?= translate('Products') ?></a>
                         <?php endif; ?>
                     <?php endif; ?>
                 </div>
@@ -64,11 +64,11 @@
 
                         <ul class="dropdown-menu dropdown-menu-end">
                             <?php if (!\Financas\Helper\Session::has()) : ?>
-                                <li><a class="dropdown-item" href="/signin">Sign in</a></li>
-                                <li><a class="dropdown-item" href="/signup">Sign up</a></li>
+                                <li><a class="dropdown-item" href="/signin"><?= translate('Sign In') ?></a></li>
+                                <li><a class="dropdown-item" href="/signup"><?= translate('Sign Up') ?></a></li>
                             <?php else : ?>
-                                <li><a class="dropdown-item" href="/profile">Profile</a></li>
-                                <li><a class="dropdown-item" href="/logout">Logout</a></li>
+                                <li><a class="dropdown-item" href="/profile"><?= translate('Profile') ?></a></li>
+                                <li><a class="dropdown-item" href="/logout"><?= translate('Logout') ?></a></li>
                             <?php endif; ?>
                         </ul>
                     </div>

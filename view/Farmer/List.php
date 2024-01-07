@@ -7,17 +7,26 @@
     <section class="container mt-3" data-bs-theme="dark">
 
         <div class="d-flex justify-content-between align-items-center mb-3">
-            <h3>Lista do fazendário</h3>
+            <h3><?= translate('Farmer list') ?></h3>
 
             <div class="d-flex gap-1">
                 <?php if (count($params) > 0) : ?>
                     <form action="/farmer" method="get">
-                        <button type="submit" class="btn btn-outline-light">Clean filter</button>
+                        <button type="submit" class="btn btn-outline-light">
+                            <?= translate('Clean filter') ?>
+                        </button>
                     </form>
                 <?php endif; ?>
 
-                <button type="button" class="btn btn-outline-light" data-bs-toggle="collapse" data-bs-target="#collapseFilter" aria-expanded="false" aria-controls="collapseFilter">
-                    Filter
+                <button 
+                    type="button" 
+                    class="btn btn-outline-light" 
+                    data-bs-toggle="collapse" 
+                    data-bs-target="#collapseFilter" 
+                    aria-expanded="false" 
+                    aria-controls="collapseFilter"
+                >
+                <?= translate('Filter') ?>
                 </button>
             </div>
         </div>
@@ -29,11 +38,11 @@
                 <thead>
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Product name</th>
-                        <th scope="col">Type</th>
-                        <th scope="col">Value</th>
-                        <th scope="col">Date</th>
-                        <th scope="col">Actions</th>
+                        <th scope="col"><?= translate('Product') ?></th>
+                        <th scope="col"><?= translate('Type') ?></th>
+                        <th scope="col"><?= translate('Value') ?></th>
+                        <th scope="col"><?= translate('Date') ?></th>
+                        <th scope="col"><?= translate('Actions') ?></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -41,20 +50,34 @@
                         <tr id="farmer-id-<?= $farmer->getId() ?>">
                             <th scope="row"> <?= $farmer->getId() ?> </th>
                             <td><?= $farmer->getProduct()->getName() ?></td>
-                            <td><?= $farmer->getType() ?></td>
+                            <td><?= translate($farmer->getType()) ?></td>
                             <td><?= $farmer->getValue(true) ?></td>
                             <td><?= $farmer->getDate()->format('d/m/Y') ?></td>
                             <td>
                                 <div class="d-flex justify-content-center gap-3">
-                                    <a class="farmer-observation cursor-pointer" data-bs-toggle="modal" data-bs-target="#informationModal">
-                                        <i class="bi bi-card-text" observation="<?= $farmer->getObservation() ?>"></i>
+                                    <a 
+                                        class="farmer-observation cursor-pointer" 
+                                        data-bs-toggle="modal" 
+                                        data-bs-target="#informationModal"
+                                    >
+                                        <i 
+                                            class="bi bi-card-text" 
+                                            observation="<?= $farmer->getObservation() ?>"
+                                        ></i>
                                     </a>
 
-                                    <a class="farmer-edit cursor-pointer" href="/farmer/show?id=<?= $farmer->getId() ?>">
+                                    <a 
+                                        class="farmer-edit cursor-pointer" 
+                                        href="/farmer/show?id=<?= $farmer->getId() ?>"
+                                    >
                                         <i class="bi bi-pencil-square" id="<?= $farmer->getId() ?>"></i>
                                     </a>
 
-                                    <a class="farmer-delete cursor-pointer" data-bs-toggle="modal" data-bs-target="#confirmModal">
+                                    <a 
+                                        class="farmer-delete cursor-pointer" 
+                                        data-bs-toggle="modal" 
+                                        data-bs-target="#confirmModal"
+                                    >
                                         <i class="bi bi-trash" id="<?= $farmer->getId() ?>"></i>
                                     </a>
                                 </div>
@@ -69,11 +92,11 @@
 
     <script>
         $(".farmer-observation").on("click", function(e) {
-            $("#informationModalLabel").html("Observation");
+            $("#informationModalLabel").html("<?= translate('Observation') ?>");
 
-            let obs = e.target.getAttribute('observation');
+            let obs = e.target.getAttribute("observation");
             if (!obs) {
-                obs = 'Sem nenhuma observação';
+                obs = "<?= translate('No comments') ?>";
             }
 
             $("#modal-observation-body-text").html(obs);
@@ -81,8 +104,8 @@
         });
 
         $(".farmer-delete").on("click", function(e) {
-            $("#confirmModalLabel").html("Delete product");
-            $("#modal-body-text").html("Are you sure you want to delete this farm?");
+            $("#confirmModalLabel").html("<?= translate('Delete product') ?>");
+            $("#modal-body-text").html("<?= translate('Are you sure you want to delete this farm?') ?>");
             $("#confirm-save").attr("delete", e.target.id);
         });
 
