@@ -31,17 +31,7 @@ $path = $_SERVER['PATH_INFO'];
 $routes = require __DIR__ . '/../config/Routes.php';
 
 /** Busca o arquivo de linguagem */
-function lang() {
-    return substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
-}
-
-$lang = lang();
-if ((is_file(__DIR__ . "/lang/{$lang}.php"))) {
-	$langDir = "lang/{$lang}.php";
-} else {
-	$langDir = "lang/en.php";
-}
-require_once __DIR__ . '/' . $langDir;
+require_once __DIR__ . '/../config/Language.php';
 
 /** Verifica a rota existe */
 if (!array_key_exists($path, $routes)){
