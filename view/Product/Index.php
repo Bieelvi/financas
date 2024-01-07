@@ -9,7 +9,7 @@
         <div class="row mb-3">
             <div class="col-4">
                 <label for="product-name" class="form-label">Product name</label>
-                <input type="text" class="form-control" id="product-name" name="product-name">
+                <input type="text" class="form-control" id="product-name" name="product-name" placeholder="Exemple: Cartão de Crédito PicPay">
             </div>
         </div>
 

@@ -12,7 +12,7 @@
                 <?php if (isset($edit)) : ?>
                     <option value="<?= $farmer->getProduct()->getId() ?>"><?= $farmer->getProduct()->getName() ?></option>
                 <?php else : ?>
-                    <option selected disabled value></option>
+                    <option selected disabled value>Selecione um produto</option>
                 <?php endif; ?>
 
                 <?php foreach ($products as $product) : ?>
@@ -27,7 +27,7 @@
                 <?php if (isset($edit)) : ?>
                     <option value="<?= $farmer->getType() ?>"><?= $farmer->getType() ?></option>
                 <?php else : ?>
-                    <option selected disabled value></option>
+                    <option selected disabled value>Selecione um tipo</option>
                 <?php endif; ?>
 
                 <?php foreach (\Financas\Enum\ProductType::cases() as $type) : ?>
@@ -38,7 +38,7 @@
 
         <div class="col">
             <label for="product-value" class="form-label">Product value</label>
-            <input type="number" step="0.01" class="form-control" id="product-value" name="product-value" value="<?= isset($edit) ? $farmer->getValue() : null ?>">
+            <input type="number" step="0.01" class="form-control" id="product-value" name="product-value" placeholder="Exemple 100,15" value="<?= isset($edit) ? $farmer->getValue() : null ?>">
         </div>
 
         <div class="col">
