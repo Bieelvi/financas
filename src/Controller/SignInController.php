@@ -33,9 +33,10 @@ class SignInController extends Controller
             /** @var User */
             $user = $this->em
                 ->getRepository(User::class)
-                ->findOneBy([
+                ->findOneByEmail([
                     'email' => $post['email']
                 ]);
+            
             $user->verifyPassword($post['password']);
 
             $user->setRememberPassword($post['remember-password'])
@@ -58,7 +59,7 @@ class SignInController extends Controller
                 $e->getMessage()
             );
             
-            Route::redirect('signIn');
+            Route::redirect('signin');
         }
     }
 }
