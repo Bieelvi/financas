@@ -38,26 +38,26 @@ abstract class Controller
 
     public function show(): void
     {
-        throw new \DomainException('Necessário extender este método');
+        throw new \DomainException(translate("Necessary extendens this method"));
     }
 
     public function view(): void
     {
-        throw new \DomainException('Necessário extender este método');
+        throw new \DomainException(translate("Necessary extendens this method"));
     }
 
     public function edit(): void
     {
-        throw new \DomainException('Necessário extender este método');
+        throw new \DomainException(translate("Necessary extendens this method"));
     }
 
     public function store(): void
     {
-        throw new \DomainException('Necessário extender este método');
+        throw new \DomainException(translate("Necessary extendens this method"));
     }
 
     public function delete(): void
     {
-        throw new \DomainException('Necessário extender este método');
+        throw new \DomainException(translate("Necessary extendens this method"));
     }
 }

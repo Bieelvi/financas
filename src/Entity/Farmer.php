@@ -91,7 +91,7 @@ class Farmer
     public function setType(string $type): self 
     {
         if (!ProductType::from($type)) {
-            throw new \InvalidArgumentException("Invalid type");
+            throw new \InvalidArgumentException(translate("Invalid type"));
         }
 
         $this->type = $type;

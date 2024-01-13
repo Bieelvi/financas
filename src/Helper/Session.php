@@ -37,7 +37,7 @@ class Session
 
             FlashMessage::message(
                 'danger', 
-                'Necessary new login'
+                translate("Necessary new login")
             );
 
             Route::redirect('signin');            

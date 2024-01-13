@@ -8,8 +8,6 @@ use Financas\Report\RedirectToReport;
 
 class ReportController extends Controller
 {
-    private string $pageName = 'report';
-
     public function view(): void
     {
         $get = $this->get();
@@ -27,7 +25,7 @@ class ReportController extends Controller
         RenderHtml::render(
             'Report/Index.php',
             [
-                'title'        => $this->pageName,
+                'title'        => translate('Reports'),
                 'farmers'      => $report->data(),
                 'filterPeriod' => $filterPeriod,
                 'params'       => $get

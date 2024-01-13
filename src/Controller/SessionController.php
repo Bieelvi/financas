@@ -11,7 +11,7 @@ class SessionController extends Controller
         $session = isset($_SESSION['flash_message']);
 
         Response::json([
-            'data' => $session ? $_SESSION['flash_message'] : 'No message'
+            'data' => $session ? $_SESSION['flash_message'] : translate('No message')
         ], $session ? 200 : 404);
     }
 
@@ -23,7 +23,7 @@ class SessionController extends Controller
             unset($_SESSION[$post['unset']]);
 
             Response::json([
-                'data' => 'Unset session successfully'
+                'data' => translate('Unset session successfully')
             ], 200);
         }
 

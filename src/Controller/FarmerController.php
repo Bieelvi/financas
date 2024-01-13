@@ -13,8 +13,6 @@ use Financas\Helper\Route;
 
 class FarmerController extends Controller
 {
-    private string $pageName = 'farmer';
-
     public function view(): void
     {
         $get = $this->get();
@@ -29,7 +27,7 @@ class FarmerController extends Controller
         
         RenderHtml::render(
             'Farmer/Index.php', [
-                'title'      => $this->pageName,
+                'title'      => translate("Farmer"),
                 'products'   => $products,
                 'farmers'    => $farmers,
                 'params'     => $get
@@ -51,7 +49,7 @@ class FarmerController extends Controller
         
         RenderHtml::render(
             'Farmer/Show.php', [
-                'title'      => $this->pageName,
+                'title'      => translate("Farmer"),
                 'products'   => $products,
                 'farmer'     => $farmer,
                 'edit'       => true
@@ -85,7 +83,7 @@ class FarmerController extends Controller
 
             FlashMessage::message(
                 'success', 
-                'Farmer edit with successfully'
+                translate('Farmer edit with successfully')
             );
             
             Route::redirect('farmer');
@@ -125,7 +123,7 @@ class FarmerController extends Controller
 
             FlashMessage::message(
                 'success', 
-                'Farmer saved with successfully'
+                translate('Farmer saved with successfully')
             );
 
             Route::redirect('farmer');
@@ -152,7 +150,7 @@ class FarmerController extends Controller
             $this->em->flush();
             
             Response::json([
-                'data' => 'Farmer deleted successfully'
+                'data' => translate('Farmer deleted with successfully')
             ], 200);
         } catch (\Throwable $e) {
             Response::json([

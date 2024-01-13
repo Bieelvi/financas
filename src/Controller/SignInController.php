@@ -10,8 +10,6 @@ use Financas\Helper\Session;
 
 class SignInController extends Controller
 {
-    private string $pageName = 'signin';
-
     public function view(): void
     {
         if (Session::has()) {
@@ -20,7 +18,7 @@ class SignInController extends Controller
 
         RenderHtml::render(
             'SignIn/Index.php', [
-                'title' => $this->pageName,
+                'title' => translate('signin'),
             ]
         );
     }
@@ -49,7 +47,7 @@ class SignInController extends Controller
 
             FlashMessage::message(
                 'success', 
-                'Logged in successfully'
+                translate('Logged in successfully')
             );
 
             Route::redirect('home');

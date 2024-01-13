@@ -7,8 +7,6 @@ use Financas\Helper\{FlashMessage, RenderHtml, Response, Route};
 
 class ProductController extends Controller
 {
-    private string $pageName = 'products';
-
     public function view(): void
     {
         if (!$_SESSION['logged']->isAdmin()) {
@@ -21,7 +19,7 @@ class ProductController extends Controller
 
         RenderHtml::render(
             'Product/Index.php', [
-                'title' => $this->pageName,
+                'title' => translate('Products'),
                 'products' => $products
             ]
         );
@@ -44,7 +42,7 @@ class ProductController extends Controller
 
             FlashMessage::message(
                 'success', 
-                'Product saved with successfully'
+                translate('Product saved with successfully')
             );
 
             Route::redirect('products');
@@ -56,7 +54,7 @@ class ProductController extends Controller
 
             RenderHtml::render(
                 'Product/Index.php', [
-                    'title' => $this->pageName,
+                    'title' => translate('Products'),
                 ]
             );
         }
@@ -79,7 +77,7 @@ class ProductController extends Controller
             $this->em->flush();
             
             Response::json([
-                'data' => 'Product deleted successfully'
+                'data' => translate('Product deleted with successfully')
             ], 200);
         } catch (\Throwable $e) {
             Response::json([

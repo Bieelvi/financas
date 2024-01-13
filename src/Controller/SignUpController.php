@@ -10,8 +10,6 @@ use Financas\Helper\Session;
 
 class SignUpController extends Controller
 {
-    private string $pageName = 'signup';
-
     public function view(): void
     {
         if (Session::has()) {
@@ -20,7 +18,7 @@ class SignUpController extends Controller
 
         RenderHtml::render(
             'SignUp/Index.php', [
-                'title' => $this->pageName,
+                'title' => translate('signup'),
             ]
         );
     }
@@ -42,7 +40,7 @@ class SignUpController extends Controller
 
             FlashMessage::message(
                 'success', 
-                'User saved with successfully'
+                translate('User saved with successfully')
             );
 
             Route::redirect('home');
@@ -54,7 +52,7 @@ class SignUpController extends Controller
 
             RenderHtml::render(
                 'SignUp/Index.php', [
-                    'title' => $this->pageName
+                    'title' => translate('signup')
                 ]
             );
         }

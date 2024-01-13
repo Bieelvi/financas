@@ -14,7 +14,7 @@ class LogoutController extends Controller
 
         FlashMessage::message(
             'success', 
-            'Logout successfully'
+            translate('Logout successfully')
         );
 
         Route::redirect('home');

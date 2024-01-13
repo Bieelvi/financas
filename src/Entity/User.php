@@ -125,7 +125,7 @@ class User
     public function setType(string $type): self 
     {
         if (!UserType::from($type)) {
-            throw new \InvalidArgumentException("Invalid type");
+            throw new \InvalidArgumentException(translate("Invalid type"));
         }
 
         $this->type = $type;
@@ -190,13 +190,13 @@ class User
             return true;
         }
 
-        throw new \DomainException('Password do not match');
+        throw new \DomainException(translate('Password do not match'));
     }
 
     public function compare(string $password, string $confirmPassword): void
     {
         if ($password !== $confirmPassword) {
-            throw new \DomainException('Passwords do not match');
+            throw new \DomainException(translate('Passwords do not match'));
         }
     }
 

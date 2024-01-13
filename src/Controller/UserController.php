@@ -8,8 +8,6 @@ use Financas\Entity\User;
 
 class UserController extends Controller
 {
-    private string $pageName = 'user';
-
     public function view(): void
     {
         /** @var User */
@@ -17,7 +15,7 @@ class UserController extends Controller
 
         RenderHtml::render(
             'Profile/Index.php', [
-                'title' => $this->pageName,
+                'title' => translate('User'),
                 'user'  => $user
             ]
         );
@@ -52,7 +50,7 @@ class UserController extends Controller
             ));
 
             Response::json([
-                'data' => 'Email sended successfully'
+                'data' => translate('Email sended successfully')
             ], 200);
         } catch (\Throwable $e) {
             Response::json([
@@ -72,7 +70,7 @@ class UserController extends Controller
         if ($diff->format("%R") === '+') {
             FlashMessage::message(
                 'danger', 
-                'Expired code'
+                translate('Expired code')
             );
     
             Route::redirect('home');
@@ -93,7 +91,7 @@ class UserController extends Controller
 
         FlashMessage::message(
             'success', 
-            'Email validated successfully'
+            translate('Email validated successfully')
         );
 
         Route::redirect('home');
@@ -121,13 +119,13 @@ class UserController extends Controller
             (new SendMail())->send(new Mail(
                 to: $user->getEmail(),
                 toName: $user->getName(),
-                subject: 'Password Updated',
-                body: 'Password updated successfully',
+                subject: translate('Password updated'),
+                body: translate('Password updated successfully'),
                 isHtml: false
             ));
 
             Response::json([
-                'data' => 'Password updated successfully'
+                'data' => translate('Password updated successfully')
             ], 200);
         } catch (\Throwable $e) {
             Response::json([
@@ -159,13 +157,13 @@ class UserController extends Controller
             (new SendMail())->send(new Mail(
                 to: $user->getEmail(),
                 toName: $user->getName(),
-                subject: 'Email Updated',
-                body: 'Email updated successfully',
+                subject: translate('Email updated'),
+                body: translate('Email updated successfully'),
                 isHtml: false
             ));
 
             Response::json([
-                'data' => 'Email updated successfully'
+                'data' => translate('Email updated successfully')
             ], 200);
         } catch (\Throwable $e) {
             Response::json([
