@@ -2,39 +2,67 @@
     <div class="d-flex justify-content-between align-items-center mb-1">
         <h4>Password</h4>
 
-        <button type="button" class="btn btn-outline-light" data-bs-toggle="collapse" data-bs-target="#collapsePassword" aria-expanded="false" aria-controls="collapsePassword">
-            Change
+        <button 
+            type="button" 
+            class="btn btn-outline-light" 
+            data-bs-toggle="collapse" 
+            data-bs-target="#collapsePassword" 
+            aria-expanded="false" 
+            aria-controls="collapsePassword"
+        >
+            <?= translate("Change") ?>
         </button>
     </div>
 
     <div class="collapse my-2" id="collapsePassword">
         <div class="card card-body">
             <div class="mb-2">
-                <input type="password" password id="actual-password" name="actual-password" class="form-control" placeholder="Actual password">
+                <input 
+                    type="password" 
+                    password 
+                    id="actual-password" 
+                    name="actual-password" 
+                    class="form-control" 
+                    placeholder="<?= translate("Actual password") ?>"
+                >
             </div>
 
             <div class="mb-2">
-                <input type="password" password id="new-password" name="new-password" class="form-control" placeholder="New password">
+                <input 
+                    type="password" 
+                    password 
+                    id="new-password" 
+                    name="new-password" 
+                    class="form-control" 
+                    placeholder="<?= translate("New password") ?>"
+                >
             </div>
 
             <div class="mb-2">
-                <input type="password" password id="repeat-new-password" name="repeat-new-password" class="form-control" placeholder="Repeat new password">
+                <input 
+                    type="password" 
+                    password 
+                    id="repeat-new-password" 
+                    name="repeat-new-password" 
+                    class="form-control" 
+                    placeholder="<?= translate("Repeat new password") ?>"
+                >
 
                 <div class="d-flex justify-content-between">
-                    <small class="cursor-pointer" id="show-password">Show password</small>
-                    <small class="text-danger d-none" id="not-match">Passwords do not match</small>
+                    <small class="cursor-pointer" id="show-password"><?= translate("Show password") ?></small>
+                    <small class="text-danger d-none" id="not-match"><?= translate("Passwords do not match") ?></small>
                 </div>
             </div>
 
 
             <div class="d-flex align-items-end">
                 <button type="submit" id="update-password" disabled class="btn btn-outline-light">
-                    Update password
+                    <?= translate("Update password") ?>
                 </button>
 
                 <button id="loading-password" type="submit" id="validate" disabled class="d-none btn btn-outline-light">
                     <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
-                    <span role="status">Updating...</span>
+                    <span role="status"><?= translate("Updating") ?>...</span>
                 </button>
             </div>
         </div>

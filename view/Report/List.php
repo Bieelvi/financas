@@ -1,16 +1,23 @@
 <section class="container mt-3" data-bs-theme="dark">
     <div class="d-flex justify-content-between align-items-center mb-3">
-        <h3><?= ucfirst($filterPeriod) ?></h3>
+        <h3><?= translate(ucfirst($filterPeriod)) ?></h3>
 
         <div class="d-flex gap-1">
             <?php if (count($params) > 0) : ?>
                 <form action="/report" method="get">
-                    <button type="submit" class="btn btn-outline-light">Clean filter</button>
+                    <button type="submit" class="btn btn-outline-light"><?= translate("Clean filter") ?></button>
                 </form>
             <?php endif; ?>
 
-            <button type="button" class="btn btn-outline-light" data-bs-toggle="collapse" data-bs-target="#collapseFilter" aria-expanded="false" aria-controls="collapseFilter">
-                Filter
+            <button 
+                type="button" 
+                class="btn btn-outline-light" 
+                data-bs-toggle="collapse" 
+                data-bs-target="#collapseFilter" 
+                aria-expanded="false" 
+                aria-controls="collapseFilter"
+            >
+                <?= translate("Filter") ?>
             </button>
         </div>
     </div>
@@ -21,8 +28,8 @@
         <table class="table table-hover table-striped text-center">
             <thead>
                 <tr>
-                    <th scope="col"><?= ucfirst($filterPeriod)."s" ?></th>
-                    <th scope="col">Value</th>
+                    <th scope="col"><?= translate(ucfirst($filterPeriod))."s" ?></th>
+                    <th scope="col"><?= translate("Value") ?></th>
                 </tr>
             </thead>
             <tbody>

@@ -2,7 +2,7 @@
 
 <section class="container mt-3" data-bs-theme="dark">    
     <div class="mb-3">
-        <h1>Relatório</h1>
+        <h1><?= translate("Report") ?></h1>
     </div>
 </section>
 

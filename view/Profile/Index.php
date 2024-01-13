@@ -3,7 +3,7 @@
 <section id="profile-index" class="container mt-3" data-bs-theme="dark">
     
     <div class="mb-3">
-        <h1>User Profile</h1>
+        <h1><?= translate("User profile") ?></h1>
     </div>
 
     <?php require_once __DIR__ . '/Email.php' ?>

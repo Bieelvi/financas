@@ -2,8 +2,15 @@
     <div class="d-flex justify-content-between align-items-center mb-1">
         <h4>Email</h4>
 
-        <button type="button" class="btn btn-outline-light" data-bs-toggle="collapse" data-bs-target="#collapseEmail" aria-expanded="false" aria-controls="collapseEmail">
-            Change
+        <button 
+            type="button" 
+            class="btn btn-outline-light" 
+            data-bs-toggle="collapse" 
+            data-bs-target="#collapseEmail" 
+            aria-expanded="false" 
+            aria-controls="collapseEmail"
+        >
+            <?= translate("Change") ?>
         </button>
     </div>
 
@@ -16,31 +23,31 @@
             <?php if (!$user->getValidateEmail()) : ?>
                 <div class="d-flex align-items-end">
                     <button type="submit" id="validate" class="btn btn-outline-light">
-                        Validate
+                        <?= translate("Validate") ?>
                     </button>
 
                     <button id="loading-validate" type="submit" id="validate" disabled class="d-none btn btn-outline-light">
                         <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
-                        <span role="status">Validating...</span>
+                        <span role="status"><?= translate("Validating") ?>...</span>
                     </button>
                 </div>
             <?php else : ?>
                 <div class="mb-2">
-                    <input type="email" id="new-email" email class="form-control" placeholder="New email">
+                    <input type="email" id="new-email" email class="form-control" placeholder="<?= translate("New email") ?>">
                 </div>
 
                 <div class="mb-2">
-                    <input type="password" password id="password" class="form-control d-none" placeholder="Password">
+                    <input type="password" password id="password" class="form-control d-none" placeholder="<?= translate("Password") ?>">
                 </div>
 
                 <div class="d-flex align-items-end">
                     <button type="submit" id="update-email" disabled class="btn btn-outline-light">
-                        Update email
+                        <?= translate("Update email") ?>
                     </button>
 
                     <button id="loading-email" type="submit" id="validate" disabled class="d-none btn btn-outline-light">
                         <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
-                        <span role="status">Updating...</span>
+                        <span role="status"><?= translate("Updating") ?>...</span>
                     </button>
                 </div>
             <?php endif; ?>
