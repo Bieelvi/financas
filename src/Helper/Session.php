@@ -25,9 +25,8 @@ class Session
 
         /** @var User */
         $user = $_SESSION['logged'];
-        if ($user->getRememberPassword()) {
+        if ($user->getRememberPassword())
             return isset($_SESSION['logged']);
-        }
         
         $now = new \DateTimeImmutable('now', new \DateTimeZone('America/Sao_Paulo'));
         $interval = $user->getLastLoginAt()->diff($now);
@@ -42,5 +41,7 @@ class Session
 
             Route::redirect('signin');            
         }
+
+        return true;
     }
 }
