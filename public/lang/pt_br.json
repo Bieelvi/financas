@@ -97,5 +97,11 @@
     "Password updated": "Senha atualizada",
     "Email updated successfully": "Email atualizado com sucesso",
     "Email updated": "Email atualizado",
-    "Invalid type": "Tipo invalido"
+    "Invalid type": "Tipo invalido",
+    "Configurations": "Configurações",
+    "pt_br": "Português",
+    "en": "Inglês",
+    "Config saved with successfully": "Configuração salva com sucesso",
+    "Save": "Salvar",
+    "Select a language": "Selecione uma linguagem"
 }

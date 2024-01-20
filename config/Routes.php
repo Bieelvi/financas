@@ -32,7 +32,10 @@ return [
     '/farmer/delete'       => ['POST', Financas\Controller\FarmerController::class, 'delete', false],
 
     '/report'              => ['GET', Financas\Controller\ReportController::class, 'view', false],
-
+    
     '/session'             => ['POST', Financas\Controller\SessionController::class, 'session', true],
     '/session/unset'       => ['POST', Financas\Controller\SessionController::class, 'unsetSession', true],
+
+    '/config'              => ['GET', Financas\Controller\ConfigController::class, 'view', false],
+    '/config/store'        => ['POST', Financas\Controller\ConfigController::class, 'store', false],
 ];

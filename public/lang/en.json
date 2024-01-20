@@ -97,5 +97,11 @@
     "Password updated": "Password updated",
     "Email updated successfully": "Email updated successfully",
     "Email updated": "Email updated",
-    "Invalid type": "Invalid type"
+    "Invalid type": "Invalid type",
+    "Configurations": "Configurations",
+    "pt_br": "Portuguese",
+    "en": "English",
+    "Config saved with successfully": "Config saved with successfully",
+    "Save": "Save",
+    "Select a language": "Select a language"
 }

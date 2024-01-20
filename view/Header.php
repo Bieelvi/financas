@@ -98,6 +98,7 @@
                                 <li><a class="dropdown-item" href="/signup"><?= translate('Sign Up') ?></a></li>
                             <?php else : ?>
                                 <li><a class="dropdown-item" href="/profile"><?= translate('Profile') ?></a></li>
+                                <li><a class="dropdown-item" href="/config"><?= translate('Configurations') ?></a></li>
                                 <li><a class="dropdown-item" href="/logout"><?= translate('Logout') ?></a></li>
                             <?php endif; ?>
                         </ul>

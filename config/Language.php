@@ -2,8 +2,17 @@
 
 declare(strict_types=1);
 
+use Financas\Entity\User;
+use Financas\Enum\Language;
+
 function lang() {
-    return substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
+    /** @var User */
+    $user = $_SESSION['logged'];
+
+    if ($user->getConfigs()) 
+        return $user->getConfigs()->getLanguage();
+    else
+        return Language::EN->value;
 }
 
 function translate(string $optionText) {    

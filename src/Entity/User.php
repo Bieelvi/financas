@@ -47,6 +47,9 @@ class User
     #[ORM\OneToMany(targetEntity: Farmer::class, mappedBy: 'user')]
     private Collection $farmers;
 
+    #[ORM\OneToOne(targetEntity: UserConfig::class, mappedBy: 'user')]
+    private UserConfig|null $configs = null;
+
     public function __construct()
     {
         $this->lastLoginAt      = new \DateTime();
@@ -177,6 +180,18 @@ class User
     public function getFarmers(): Collection
     {
         return $this->farmers;
+    }
+
+    public function setConfigs(UserConfig $configs): self
+    {
+        $this->configs = $configs;
+
+        return $this;
+    }
+
+    public function getConfigs(): ?UserConfig
+    {
+        return $this->configs;
     }
 
     public function hashPassword(string $password): string
