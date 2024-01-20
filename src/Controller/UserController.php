@@ -85,8 +85,7 @@ class UserController extends Controller
 
         $this->em->persist($user);
         $this->em->flush();
-
-        Session::strip();
+        
         Session::put($user);
 
         FlashMessage::message(
@@ -113,9 +112,6 @@ class UserController extends Controller
             $this->em->persist($user);
             $this->em->flush();
             
-            Session::strip();
-            Session::put($user);
-            
             (new SendMail())->send(new Mail(
                 to: $user->getEmail(),
                 toName: $user->getName(),
@@ -124,6 +120,8 @@ class UserController extends Controller
                 isHtml: false
             ));
 
+            Session::put($user);
+            
             Response::json([
                 'data' => translate('Password updated successfully')
             ], 200);
@@ -151,9 +149,6 @@ class UserController extends Controller
             $this->em->persist($user);
             $this->em->flush();
             
-            Session::strip();
-            Session::put($user);
-            
             (new SendMail())->send(new Mail(
                 to: $user->getEmail(),
                 toName: $user->getName(),
@@ -161,6 +156,8 @@ class UserController extends Controller
                 body: translate('Email updated successfully'),
                 isHtml: false
             ));
+
+            Session::put($user);
 
             Response::json([
                 'data' => translate('Email updated successfully')

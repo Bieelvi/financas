@@ -38,6 +38,8 @@ class SignUpController extends Controller
             $this->em->persist($user);
             $this->em->flush();
 
+            Session::put($user);
+
             FlashMessage::message(
                 'success', 
                 translate('User saved with successfully')
