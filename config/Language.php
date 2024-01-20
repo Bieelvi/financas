@@ -2,15 +2,11 @@
 
 declare(strict_types=1);
 
-use Financas\Entity\User;
 use Financas\Enum\Language;
 
 function lang() {
-    /** @var User */
-    $user = $_SESSION['logged'];
-
-    if ($user->getConfigs()) 
-        return $user->getConfigs()->getLanguage();
+    if (isset($_SESSION['logged']) && $_SESSION['logged']->getConfigs()) 
+        return $_SESSION['logged']->getConfigs()->getLanguage();
     else
         return Language::EN->value;
 }

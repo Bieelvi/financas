@@ -4,6 +4,7 @@ namespace Financas\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Financas\Enum\Language;
+use Financas\Enum\Theme;
 use Financas\Repository\UserConfigRepository;
 
 #[ORM\Entity(repositoryClass: UserConfigRepository::class)]
@@ -21,6 +22,12 @@ class UserConfig
 
     #[ORM\Column(type: 'string', columnDefinition: 'ENUM("pt_br", "en")')]
     private string $language;
+
+    #[ORM\Column(type: 'string')]
+    private string $timezone;
+
+    #[ORM\Column(type: 'string', columnDefinition: 'ENUM("dark", "light")')]
+    private string $theme;
 
     #[ORM\Column(type: 'datetime', name: 'created_at')]
     private \DateTimeInterface $createdAt;
@@ -65,6 +72,34 @@ class UserConfig
     public function getLanguage(): string
     {
         return $this->language;
+    }
+
+    public function setTimezone(string $timezone): self 
+    {
+        $this->timezone = $timezone;
+
+        return $this;
+    }
+
+    public function getTimezone(): string
+    {
+        return $this->timezone;
+    }
+
+    public function setTheme(string $theme): self 
+    {
+        if (!Theme::from($theme)) {
+            throw new \InvalidArgumentException(translate("Invalid theme"));
+        }
+
+        $this->theme = $theme;
+
+        return $this;
+    }
+
+    public function getTheme(): string
+    {
+        return $this->theme;
     }
 
     public function setCreatedAt(\DateTimeInterface $createdAt): self 

@@ -5,6 +5,7 @@ namespace Financas\Controller;
 use Financas\Entity\User;
 use Financas\Entity\UserConfig;
 use Financas\Enum\Language;
+use Financas\Enum\Theme;
 use Financas\Helper\FlashMessage;
 use Financas\Helper\RenderHtml;
 use Financas\Helper\Route;
@@ -42,6 +43,8 @@ class ConfigController extends Controller
             }
 
             $userConfig->setLanguage(Language::from(($post['language']))->value);
+            $userConfig->setTheme(Theme::from(($post['theme']))->value);
+            $userConfig->setTimezone($post['timezone']);
 
             $this->em->persist($userConfig);
             $this->em->flush();

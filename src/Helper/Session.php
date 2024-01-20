@@ -28,7 +28,7 @@ class Session
         if ($user->getRememberPassword())
             return isset($_SESSION['logged']);
         
-        $now = new \DateTimeImmutable('now', new \DateTimeZone('America/Sao_Paulo'));
+        $now = new \DateTimeImmutable('now', new \DateTimeZone($user->getConfigs()->getTimezone()));
         $interval = $user->getLastLoginAt()->diff($now);
 
         if ($interval->format('%i') > self::SESSION_EXPIRATION) {

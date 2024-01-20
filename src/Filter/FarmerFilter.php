@@ -30,7 +30,7 @@ class FarmerFilter
         }
 
         if (isset($filter['initial_date']) || isset($filter['final_date'])) {
-            $tz = new \DateTimeZone('America/Sao_Paulo');
+            $tz = new \DateTimeZone($_SESSION['logged']->getConfigs()->getTimezone());
 
             $initialDate = (new \DateTime('01-01-1900', $tz));
             $finalDate   = (new \DateTime('now', $tz))->add(new \DateInterval('P1Y'));

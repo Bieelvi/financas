@@ -26,7 +26,7 @@ class UserController extends Controller
         /** @var User */
         $user = $_SESSION['logged'];
 
-        $date = (new \DateTime('now', new \DateTimeZone('America/Sao_Paulo')))
+        $date = (new \DateTime('now', new \DateTimeZone($user->getConfigs()->getTimezone())))
             ->add(new \DateInterval('PT10M'))
             ->format('Y-m-d H:i:s');
 
@@ -63,7 +63,7 @@ class UserController extends Controller
     {
         $get  = $this->get();
         $data = json_decode(Encryption::decryption($get['code']), true);
-        $tz   = new \DateTimeZone('America/Sao_Paulo');
+        $tz   = new \DateTimeZone($_SESSION['logged']->getConfigs()->getTimezone());
         $date = new \DateTime($data['date-expiration'], $tz);
         $diff = $date->diff(new \DateTime('now', $tz));
 
