@@ -37,7 +37,7 @@ class SignInController extends Controller
             
             $user->verifyPassword($post['password']);
 
-            $user->setRememberPassword($post['remember-password'])
+            $user->setRememberPassword(isset($post['remember-password']) ?? true)
                 ->setLastLoginAt(new \DateTime('now', new \DateTimeZone('America/Sao_Paulo')));
 
             $this->em->persist($user);
