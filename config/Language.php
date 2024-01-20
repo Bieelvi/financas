@@ -8,13 +8,14 @@ function lang() {
 
 function translate(string $optionText) {    
     $lang = lang();
-    if ((is_file(__DIR__ . "/../public/lang/{$lang}.php"))) {
-        $langDir = "lang/{$lang}.php";
+    if ((is_file(__DIR__ . "/../public/lang/{$lang}.json"))) {
+        $langDir = "lang/{$lang}.json";
     } else {
-        $langDir = "lang/en.php";
+        $langDir = "lang/en.json";
     }
 
-    $textArray = require __DIR__ . "/../public/{$langDir}";
+    $textJson = file_get_contents(__DIR__ . "/../public/{$langDir}");
+    $textArray = json_decode($textJson, true);
 
     if (isset($textArray[$optionText])) {
         return $textArray[$optionText];
