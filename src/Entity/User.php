@@ -24,13 +24,13 @@ class User
     private string $email;
 
     #[ORM\Column(type: 'boolean', name: 'validate_email')]
-    private bool $validateEmail;
+    private bool $validateEmail = false;
 
     #[ORM\Column(type: 'string')]
     private string $password;
 
     #[ORM\Column(type: 'boolean', name: 'remember_password')]
-    private bool $rememberPassword;
+    private bool $rememberPassword = false;
 
     #[ORM\Column(type: 'string', columnDefinition: 'ENUM("Admin", "Normal")')]
     private string $type = 'Normal';
@@ -55,8 +55,6 @@ class User
         $this->lastLoginAt      = new \DateTime();
         $this->createdAt        = new \DateTime();
         $this->updatedAt        = new \DateTime();
-        $this->validateEmail    = false;
-        $this->rememberPassword = false;
         $this->farmers          = new ArrayCollection();
     }
 

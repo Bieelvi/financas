@@ -35,7 +35,7 @@ class ConfigController extends Controller
             $user = $this->em->getRepository(User::class)
                 ->find($_SESSION['logged']->getId());
 
-            if ($user->getConfigs()) {
+            if ($user->getConfigs() !== null) {
                 $userConfig = $user->getConfigs();
             } else {
                 $userConfig = new UserConfig();

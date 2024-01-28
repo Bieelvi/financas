@@ -1,6 +1,6 @@
 <section class="container mt-3" data-bs-theme="dark">
     <div class="d-flex justify-content-between align-items-center mb-3">
-        <h3><?= translate(ucfirst($filterPeriod)."s") ?></h3>
+        <h3><?= translate(ucfirst((string) $filterPeriod)."s") ?></h3>
 
         <div class="d-flex gap-1">
             <?php if (count($params) > 0) : ?>
@@ -28,7 +28,7 @@
         <table class="table table-hover table-striped text-center">
             <thead>
                 <tr>
-                    <th scope="col"><?= translate(ucfirst($filterPeriod)) ?></th>
+                    <th scope="col"><?= translate(ucfirst((string) $filterPeriod)) ?></th>
                     <th scope="col"><?= translate("Value") ?></th>
                 </tr>
             </thead>

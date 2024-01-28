@@ -7,12 +7,11 @@ use Financas\Entity\Farmer;
 
 class FarmerByMonthReport implements Report
 {
-    private array $months;
+    private array $months = [];
 
     public function __construct(private array $farmers)
     {
         $this->farmers = $farmers;
-        $this->months  = [];
 
         $this->createArray();
     }

@@ -16,7 +16,7 @@ class ReportController extends Controller
             ->getRepository(Farmer::class)
             ->findAllWithFilter(maxResult: null);
 
-        $filterPeriod = isset($get['filter_period']) ? $get['filter_period'] : 'month';
+        $filterPeriod = $get['filter_period'] ?? 'month';
 
         $report = (new RedirectToReport())
             ->report($filterPeriod, $farmers);

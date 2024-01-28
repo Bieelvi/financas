@@ -62,7 +62,7 @@ class UserController extends Controller
     public function validation(): void
     {
         $get  = $this->get();
-        $data = json_decode(Encryption::decryption($get['code']), true);
+        $data = json_decode((string) Encryption::decryption($get['code']), true);
         $tz   = new \DateTimeZone($_SESSION['logged']->getConfigs()->getTimezone());
         $date = new \DateTime($data['date-expiration'], $tz);
         $diff = $date->diff(new \DateTime('now', $tz));

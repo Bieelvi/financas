@@ -8,7 +8,9 @@ class FarmerFilter
 {
     public function filter(QueryBuilder &$queryBuilder, array $filter = []): void
     {
-        if (count($filter) === 0) return;
+        if ($filter === []) {
+            return;
+        }
 
         if (isset($filter['type'])) {
             $queryBuilder
@@ -25,8 +27,8 @@ class FarmerFilter
         if (isset($filter['initial_value']) || isset($filter['final_value'])) {
             $queryBuilder
                 ->andWhere('f.value BETWEEN :initial_value AND :final_value')
-                ->setParameter('initial_value', isset($filter['initial_value']) ? $filter['initial_value'] : 0)
-                ->setParameter('final_value', isset($filter['final_value']) ? $filter['final_value'] : 1000000000000);
+                ->setParameter('initial_value', $filter['initial_value'] ?? 0)
+                ->setParameter('final_value', $filter['final_value'] ?? 1000000000000);
         }
 
         if (isset($filter['initial_date']) || isset($filter['final_date'])) {
@@ -37,8 +39,8 @@ class FarmerFilter
 
             $queryBuilder
                 ->andWhere('f.date BETWEEN :initial_date AND :final_date')
-                ->setParameter('initial_date', isset($filter['initial_date']) ? $filter['initial_date'] : $initialDate)
-                ->setParameter('final_date', isset($filter['final_date']) ? $filter['final_date'] : $finalDate);
+                ->setParameter('initial_date', $filter['initial_date'] ?? $initialDate)
+                ->setParameter('final_date', $filter['final_date'] ?? $finalDate);
         }
     }
 }

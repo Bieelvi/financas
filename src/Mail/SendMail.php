@@ -6,7 +6,7 @@ use PHPMailer\PHPMailer\PHPMailer;
 
 class SendMail
 {
-    private PHPMailer $mail;
+    private readonly PHPMailer $mail;
 
     public function __construct()
     {

@@ -4,7 +4,7 @@ namespace Financas\Helper;
 
 class Encryption
 {
-    const PATH_KEY = __DIR__ . '/../../chave.key';
+    final public const PATH_KEY = __DIR__ . '/../../chave.key';
     
     public static function encryption(string $value): string
     {

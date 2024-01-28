@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title><?= isset($title) ? ucfirst($title) . " - " . translate('Bieelvi Finance') : translate('Bieelvi Finance') ?></title>
+    <title><?= isset($title) ? ucfirst((string) $title) . " - " . translate('Bieelvi Finance') : translate('Bieelvi Finance') ?></title>
 
     <!-- JS essencial -->
     <script 

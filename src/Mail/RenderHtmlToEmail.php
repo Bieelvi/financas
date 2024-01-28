@@ -4,7 +4,7 @@ namespace Financas\Mail;
 
 class RenderHtmlToEmail
 {
-    const TEMPLATE_MAIL = "/../../View/Template/Mail/";
+    final public const TEMPLATE_MAIL = "/../../View/Template/Mail/";
     
     public static function validateEmail(string $path, string $crypto): string
     {

@@ -6,7 +6,7 @@
                     <label for="filter_period" class="form-label"><?= translate("Period") ?></label>
                     <select class="form-select" id="filter_period" name="filter_period">
                         <?php if (isset($params['filter_period'])) : ?>
-                            <option value="<?= $params['filter_period'] ?>"><?= ucfirst($params['filter_period']) ?></option>
+                            <option value="<?= $params['filter_period'] ?>"><?= ucfirst((string) $params['filter_period']) ?></option>
                         <?php else : ?>
                             <option selected disabled value><?= translate("Select a period") ?></option>
                         <?php endif; ?>

@@ -15,10 +15,14 @@ abstract class Controller
     public function get(): array
     {
         $gets = [];
-        foreach ($_GET as $key => $value) {            
-            if (!empty($value) && Regex::valid($value)) {
-                $gets[$key] = $value;
+        foreach ($_GET as $key => $value) {
+            if (empty($value)) {
+                continue;
             }
+            if (!Regex::valid($value)) {
+                continue;
+            }
+            $gets[$key] = $value;
         }
 
         return $gets;
@@ -28,9 +32,13 @@ abstract class Controller
     {
         $posts = [];
         foreach ($_POST as $key => $value) {
-            if (!empty($value) && Regex::valid($value)) {
-                $posts[$key] = $value;
+            if (empty($value)) {
+                continue;
             }
+            if (!Regex::valid($value)) {
+                continue;
+            }
+            $posts[$key] = $value;
         }
 
         return $posts;

@@ -50,7 +50,7 @@
                         id="initial_value" 
                         name="initial_value" 
                         placeholder="<?= translate('Exemple 100') ?>" 
-                        value="<?= isset($params['initial_value']) ? $params['initial_value'] : null ?>"
+                        value="<?= $params['initial_value'] ?? null ?>"
                     >
                 </div>
 
@@ -63,7 +63,7 @@
                         id="final_value" 
                         name="final_value" 
                         placeholder="<?= translate('Exemple 200') ?>" 
-                        value="<?= isset($params['final_value']) ? $params['final_value'] : null ?>"
+                        value="<?= $params['final_value'] ?? null ?>"
                     >
                 </div>
 
@@ -74,7 +74,7 @@
                         class="form-control" 
                         id="initial_date" 
                         name="initial_date" 
-                        value="<?= isset($params['initial_date']) ? $params['initial_date'] : null ?>"
+                        value="<?= $params['initial_date'] ?? null ?>"
                     >
                 </div>
 
@@ -85,7 +85,7 @@
                         class="form-control" 
                         id="final_date" 
                         name="final_date" 
-                        value="<?= isset($params['final_date']) ? $params['final_date'] : null ?>"
+                        value="<?= $params['final_date'] ?? null ?>"
                     >
                 </div>
             </div>

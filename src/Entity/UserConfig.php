@@ -18,7 +18,7 @@ class UserConfig
 
     #[ORM\OneToOne(targetEntity: User::class, inversedBy: 'configs')]
     #[ORM\JoinColumn(name: 'user_id', referencedColumnName: 'id')]
-    private User|null $user;
+    private User|null $user = null;
 
     #[ORM\Column(type: 'string', columnDefinition: 'ENUM("pt_br", "en")')]
     private string $language;

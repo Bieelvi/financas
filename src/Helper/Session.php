@@ -6,7 +6,7 @@ use Financas\Entity\User;
 
 class Session
 {
-    const SESSION_EXPIRATION = 10;
+    final public const SESSION_EXPIRATION = 10;
 
     public static function put(User $user): void
     {
@@ -20,13 +20,15 @@ class Session
 
     public static function has(): bool
     {
-        if (!isset($_SESSION['logged'])) 
+        if (!isset($_SESSION['logged'])) {
             return false;
+        }
 
         /** @var User */
         $user = $_SESSION['logged'];
-        if ($user->getRememberPassword())
+        if ($user->getRememberPassword()) {
             return isset($_SESSION['logged']);
+        }
         
         $now = new \DateTimeImmutable('now', new \DateTimeZone($user->getConfigs()->getTimezone()));
         $interval = $user->getLastLoginAt()->diff($now);
